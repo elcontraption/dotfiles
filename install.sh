@@ -31,14 +31,18 @@ curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
 # Install global Composer packages
-/usr/local/bin/composer global require laravel/installer laravel/lumen-installer laravel/valet tightenco/jigsaw
+/usr/local/bin/composer global require laravel/installer laravel/lumen-installer laravel/valet
+
+# Symlink fonts directory to Dropbox
+cp -R ~/Library/Fonts ~/Library/Fonts.backup
+rm -rf ~/Library/Fonts
+ln -s ~/Dropbox/Fonts ~/Library/Fonts
 
 # Install Laravel Valet
 $HOME/.composer/vendor/bin/valet install
 
-# Create a Sites directory
-# This is a default directory for macOS user accounts but doesn't comes pre-installed
-mkdir $HOME/Sites
+# Create a Code directory
+mkdir $HOME/Code
 
 # Set macOS preferences
 # We will run this last because this will reload the shell
